@@ -1,0 +1,34 @@
+<package format="3">
+  <name>robot_1</name>
+  <version>1.0.0</version>
+  <description>
+    <p>URDF description package for the mobile robot `robot_1`.</p>
+    <p>This package contains configuration data, 3D models, and launch files
+    for visualizing and simulating `robot_1` in RViz and Gazebo.</p>
+  </description>
+  <maintainer email="caio.vaz137@gmail.com">Caio Lorenzo Iriarte Salles</maintainer>
+  <license>BSD</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Build dependencies -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
+  <depend>rviz2</depend>
+  <depend>gazebo_ros</depend>
+
+  <!-- Export build type -->
+  <export>
+    <build_type>ament_cmake</build_type>
+    <architecture_independent/>
+  </export>
+</package>
+

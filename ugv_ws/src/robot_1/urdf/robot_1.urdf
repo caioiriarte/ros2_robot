@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="robot_1">
+
+  <!-- World link definition -->
+  <link name="world"/>
+
+  <!-- Base_link link definition -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.020465 -0.063416 -0.00090076"
+        rpy="0 0 0" />
+      <mass
+        value="155.77" />
+      <inertia
+        ixx="5.1202"
+        ixy="-0.007263"
+        ixz="0.032109"
+        iyy="10.869"
+        iyz="0.034037"
+        izz="6.7376" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79608 0.098039 0.098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Definition of joint between 'world' and 'base_link' for robot -->
+  <joint
+    name="base_joint"
+    type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.17"/>
+  </joint>
+
+  <!-- Wheel 1 link definition -->
+  <link
+    name="wheel1_link">
+    <inertial>
+      <origin
+        xyz="-0.0001036 4.2643E-05 -0.0052124"
+        rpy="0 0 0" />
+      <mass
+        value="18.438" />
+      <inertia
+        ixx="0.18676"
+        ixy="-2.2799E-05"
+        ixz="0.0027868"
+        iyy="0.18671"
+        iyz="-0.0011471"
+        izz="0.32692" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Wheel 1 joint definition -->
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0.24842 -0.2131 0.40842"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel1_link" />
+    <axis
+      xyz="-0.01987 0.0081792 -0.99977" />
+    <limit
+      effort="500"
+      velocity="3.1416" />
+  </joint>
+
+  <!-- Set wheel 1 transmission -->
+  <transmission name="wheel1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel1_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Wheel 2 link definition -->
+  <link
+    name="wheel2_link">
+    <inertial>
+      <origin
+        xyz="-0.0001036 4.2643E-05 -0.0052124"
+        rpy="0 0 0" />
+      <mass
+        value="18.438" />
+      <inertia
+        ixx="0.18676"
+        ixy="-2.2799E-05"
+        ixz="0.0027868"
+        iyy="0.18671"
+        iyz="-0.0011471"
+        izz="0.32692" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Wheel 2 joint definition -->
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="-0.23149 -0.21368 0.41795"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel2_link" />
+    <axis
+      xyz="-0.01987 0.0081792 -0.99977" />
+    <limit
+      effort="500"
+      velocity="3.1416" />
+  </joint>
+
+  <!-- Set wheel 2 transmission -->
+  <transmission name="wheel2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel2_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Wheel 3 link definition -->
+  <link
+    name="wheel3_link">
+    <inertial>
+      <origin
+        xyz="-0.00010357 -4.2604E-05 -0.0052126"
+        rpy="0 0 0" />
+      <mass
+        value="18.438" />
+      <inertia
+        ixx="0.18681"
+        ixy="2.277E-05"
+        ixz="0.0027833"
+        iyy="0.18677"
+        iyz="0.0011457"
+        izz="0.3268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Wheel 3 joint definition -->
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0.23193 -0.20631 -0.42139"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel3_link" />
+    <axis
+      xyz="-0.01987 -0.0081792 -0.99977" />
+    <limit
+      effort="500"
+      velocity="3.1416" />
+  </joint>
+
+  <!-- Set wheel 3 transmission -->
+  <transmission name="wheel3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel3_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Wheel 4 link definition -->
+  <link
+    name="wheel4_link">
+    <inertial>
+      <origin
+        xyz="-0.0001036 -4.2645E-05 -0.0052126"
+        rpy="0 0 0" />
+      <mass
+        value="18.438" />
+      <inertia
+        ixx="0.18681"
+        ixy="2.277E-05"
+        ixz="0.0027833"
+        iyy="0.18677"
+        iyz="0.0011457"
+        izz="0.3268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/wheel4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Wheel 4 joint definition -->
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.24798 -0.20689 -0.41186"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel4_link" />
+    <axis
+      xyz="-0.01987 -0.0081792 -0.99977" />
+    <limit
+      effort="500"
+      velocity="3.1416" />
+  </joint>
+
+  <!-- Set wheel 4 transmission -->
+  <transmission name="wheel4_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel4_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Base of articulated camera - link definition -->
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Joint for moving camera - joint definition -->
+  <joint
+    name="joint_5"
+    type="revolute">
+    <origin
+      xyz="0.19968 0.27123 -0.0017495"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="-0.01987 0.0081792 -0.99977" />
+    <limit
+      lower="-0.7854"
+      upper="0.7854"
+      effort="300"
+      velocity="0.8" />
+  </joint>
+
+  <!-- Set wheel 2 transmission -->
+  <transmission name="camera_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint_5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="camera_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- Robotic arm with camera - link definition -->
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="0.00023684 -0.22638 -0.0018567"
+        rpy="0 0 0" />
+      <mass
+        value="5.4483" />
+      <inertia
+        ixx="0.081256"
+        ixy="7.0841E-05"
+        ixz="-1.8425E-05"
+        iyy="0.013173"
+        iyz="-0.00055068"
+        izz="0.080297" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_1/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Camera top position (joint fixed) -->
+  <joint
+    name="joint_6"
+    type="fixed">
+    <origin
+      xyz="-0.0010356 0.40998 0.0036816"
+      rpy="0 0 0" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="0.01987 -0.0081792 0.99977" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <!-- ros2_control block -->
+  <ros2_control name="robot_1_controller" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="joint_1">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_2">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_3">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_4">
+      <command_interface name="velocity"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="joint_5">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+    </joint>
+  </ros2_control>
+
+  <!-- Gazebo Plugins -->
+  <gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so"/>
+
+    <plugin name="wheel1_controller" filename="libgazebo_ros_control.so">
+      <ros>
+        <namespace>/mobile_robot</namespace>
+        <remapping>cmd_wheel1:=/cmd_wheel1</remapping>
+      </ros>
+      <joint>joint_1</joint>
+      <type>effort_controllers/JointEffortController</type>
+      <interface>effort</interface>
+    </plugin>
+
+    <plugin name="wheel2_controller" filename="libgazebo_ros_control.so">
+      <ros>
+        <namespace>/mobile_robot</namespace>
+        <remapping>cmd_wheel2:=/cmd_wheel2</remapping>
+      </ros>
+      <joint>joint_2</joint>
+      <type>effort_controllers/JointEffortController</type>
+      <interface>effort</interface>
+    </plugin>
+
+    <plugin name="wheel3_controller" filename="libgazebo_ros_control.so">
+      <ros>
+        <namespace>/mobile_robot</namespace>
+        <remapping>cmd_wheel3:=/cmd_wheel3</remapping>
+      </ros>
+      <joint>joint_3</joint>
+      <type>effort_controllers/JointEffortController</type>
+      <interface>effort</interface>
+    </plugin>
+
+    <plugin name="wheel4_controller" filename="libgazebo_ros_control.so">
+      <ros>
+        <namespace>/mobile_robot</namespace>
+        <remapping>cmd_wheel4:=/cmd_wheel4</remapping>
+      </ros>
+      <joint>joint_4</joint>
+      <type>effort_controllers/JointEffortController</type>
+      <interface>effort</interface>
+    </plugin>
+
+    <!-- Camera controller -->
+    <plugin name="camera_joint_controller" filename="libgazebo_ros_control.so">
+      <ros>
+        <namespace>/mobile_robot</namespace>
+        <remapping>cmd_camera:=/cmd_camera</remapping>
+      </ros>
+      <joint>joint_5</joint>
+      <type>position_controllers/JointPositionController</type>
+      <interface>position</interface>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo reference="base_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="wheel1_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="wheel2_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="wheel3_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="wheel4_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="link_1">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <gazebo reference="link_2">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+</robot>

@@ -1,0 +1,32 @@
+# Wheel controllers -----------------------------------
+wheel1_controller:
+  type: "effort_controllers/JointEffortController"
+  joints: [joint_1]
+  command_interface: "effort"
+
+wheel2_controller:
+  type: "effort_controllers/JointEffortController"
+  joints: [joint_2]
+  command_interface: "effort"
+
+wheel3_controller:
+  type: "effort_controllers/JointEffortController"
+  joints: [joint_3]
+  command_interface: "effort"
+
+wheel4_controller:
+  type: "effort_controllers/JointEffortController"
+  joints: [joint_4]
+  command_interface: "effort"
+# -----------------------------------------------------
+
+# Controller for camera
+camera_controller:
+  type: "position_controllers/JointPositionController"
+  joints: [joint_5]
+  command_interface: "position"
+
+# Controller for publishing joint states
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
