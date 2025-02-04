@@ -1,0 +1,11 @@
+#   Add subfolders and files which would not be added to commit
+
+*.STL
+
+build/
+install/
+log/
+meshes/
+include/
+textures/
+__pycache__/

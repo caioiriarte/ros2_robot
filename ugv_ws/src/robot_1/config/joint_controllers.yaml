@@ -1,0 +1,27 @@
+# Controllers for wheels
+wheel_controller_1: 
+  type: "position_controllers/JointTrajectoryController"
+  joints: [joint_4]
+  
+wheel_controller_2: 
+  type: "position_controllers/JointTrajectoryController"
+  joints: [joint_5]
+  
+wheel_controller_3: 
+  type: "position_controllers/JointTrajectoryController"
+  joints: [joint_6]
+  
+wheel_controller_4: 
+  type: "position_controllers/JointTrajectoryController"
+  joints: [joint_7]
+
+# Controller for camera (end effector)
+ee_controller: 
+  type: "position_controllers/JointTrajectoryController"
+  joints: [joint_9]
+
+# Controller for joint states
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+

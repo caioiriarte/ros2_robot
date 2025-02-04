@@ -1,18 +1,22 @@
-<?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="3">
+<package format="2">
   <name>ugv_pkg</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="caio.vaz137@gmail.com">caioiriarte</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.0.1</version>
+  <description>Paquete para integrar sensores de MuJoCo con ROS 2</description>
+  <maintainer email="caio.vaz137@gmail.com">Tu Nombre</maintainer>
+  <license>Apache-2.0</license>
 
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <!-- Dependencias necesarias -->
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>numpy</depend>
+  <depend>mujoco</depend>
+
+  <!-- Opcional: Si usarás RViz directamente -->
+  <depend>rviz_common</depend>
 
   <export>
     <build_type>ament_python</build_type>
   </export>
 </package>
+

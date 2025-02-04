@@ -1,8 +1,0 @@
-Visualization Manager:
-  Class: ""
-  Displays:
-    - Name: Robot Model
-      Class: rviz_default_plugins/RobotModel
-      Enabled: true
-      Robot Description: robot_description
-  Enabled: true

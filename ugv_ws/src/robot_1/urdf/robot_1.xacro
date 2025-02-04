@@ -2,7 +2,7 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
   name="robot_1">
   <link
     name="base_link">
@@ -879,7 +879,6 @@
       xyz="0 0 0" />
   </joint>
 
-
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" -->
 
   <transmission name="wheel1_trans">
@@ -933,22 +932,6 @@
       filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
     </plugin>
-
-    <sensor type="camera" name="my_camera">
-      <camera>
-        <horizontal_fov>1.5708</horizontal_fov>
-        <image width="640" height="480"/>
-        <clip>
-          <near>0.1</near>
-          <far>50.0</far>
-        </clip>
-      </camera>
-      <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
-        <ros>
-          <param name="image_topic" value="/camera/image_raw"/>
-        </ros>
-      </plugin>
-    </sensor>
   </gazebo>
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" -->
