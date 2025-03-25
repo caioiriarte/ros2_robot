@@ -2,8 +2,8 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="robot_1">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+  name="ugv_robot">
   <link
     name="base_link">
     <inertial>
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/base_link.STL" />
+          filename="package://ugv_robot/meshes/base_link.STL" />
       </geometry>
 
       <!-- Change MAIN BODY color -->
@@ -43,7 +43,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/base_link.STL" />
+          filename="package://ugv_robot/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -77,7 +77,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/lidar_link.STL" />
+          filename="package://ugv_robot/meshes/lidar_link.STL" />
       </geometry>
 
       <!-- Change LIDAR 180º color -->
@@ -94,7 +94,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/lidar_link.STL" />
+          filename="package://ugv_robot/meshes/lidar_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -140,7 +140,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/body_link.STL" />
+          filename="package://ugv_robot/meshes/body_link.STL" />
       </geometry>
       <material
         name="body_metal">
@@ -154,7 +154,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/body_link.STL" />
+          filename="package://ugv_robot/meshes/body_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -200,7 +200,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel1_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel1_Link.STL" />
       </geometry>
 
       <!-- Change wheel 1 color -->
@@ -217,7 +217,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel1_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel1_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -263,7 +263,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel1_sub_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel1_sub_Link.STL" />
       </geometry>
       <material
         name="metal_roll">
@@ -277,7 +277,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel1_sub_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel1_sub_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -317,7 +317,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel2_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel2_Link.STL" />
       </geometry>
 
       <!-- Change wheel 2 color -->
@@ -334,7 +334,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel2_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel2_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -380,7 +380,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel2_sub_link.STL" />
+          filename="package://ugv_robot/meshes/wheel2_sub_link.STL" />
       </geometry>
       <material
         name="metal_roll">
@@ -394,7 +394,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel2_sub_link.STL" />
+          filename="package://ugv_robot/meshes/wheel2_sub_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -435,7 +435,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel3_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel3_Link.STL" />
       </geometry>
 
       <!-- Change wheel 3 color -->
@@ -452,7 +452,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel3_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel3_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -498,7 +498,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel3_sub_link.STL" />
+          filename="package://ugv_robot/meshes/wheel3_sub_link.STL" />
       </geometry>
       <material
         name="metal_roll">
@@ -512,7 +512,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel3_sub_link.STL" />
+          filename="package://ugv_robot/meshes/wheel3_sub_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -553,7 +553,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel4_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel4_Link.STL" />
       </geometry>
 
       <!-- Change wheel 4 color -->
@@ -570,7 +570,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel4_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel4_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -616,7 +616,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel4_sub_link.STL" />
+          filename="package://ugv_robot/meshes/wheel4_sub_link.STL" />
       </geometry>
       <material
         name="metal_roll">
@@ -630,7 +630,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/wheel4_sub_link.STL" />
+          filename="package://ugv_robot/meshes/wheel4_sub_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -671,7 +671,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/arm_link.STL" />
+          filename="package://ugv_robot/meshes/arm_link.STL" />
       </geometry>
       <material
         name="">
@@ -685,7 +685,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/arm_link.STL" />
+          filename="package://ugv_robot/meshes/arm_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -731,7 +731,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/cam_rev_Link.STL" />
+          filename="package://ugv_robot/meshes/cam_rev_Link.STL" />
       </geometry>
       <material
         name="">
@@ -745,7 +745,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/cam_rev_Link.STL" />
+          filename="package://ugv_robot/meshes/cam_rev_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -786,7 +786,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/cam_Link.STL" />
+          filename="package://ugv_robot/meshes/cam_Link.STL" />
       </geometry>
       <material
         name="">
@@ -800,7 +800,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/cam_Link.STL" />
+          filename="package://ugv_robot/meshes/cam_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -846,7 +846,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/cam_end_Link.STL" />
+          filename="package://ugv_robot/meshes/cam_end_Link.STL" />
       </geometry>
       <material
         name="">
@@ -860,7 +860,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://robot_1/meshes/cam_end_Link.STL" />
+          filename="package://ugv_robot/meshes/cam_end_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -878,7 +878,6 @@
     <axis
       xyz="0 0 0" />
   </joint>
-
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" -->
 
@@ -933,22 +932,6 @@
       filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
     </plugin>
-
-    <sensor type="camera" name="my_camera">
-      <camera>
-        <horizontal_fov>1.5708</horizontal_fov>
-        <image width="640" height="480"/>
-        <clip>
-          <near>0.1</near>
-          <far>50.0</far>
-        </clip>
-      </camera>
-      <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
-        <ros>
-          <param name="image_topic" value="/camera/image_raw"/>
-        </ros>
-      </plugin>
-    </sensor>
   </gazebo>
 
   <!-- """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" -->

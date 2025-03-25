@@ -6,7 +6,11 @@
   <license>Apache-2.0</license>
 
   <!-- Dependencias necesarias -->
-  <depend>rclpy</depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>builtin_interfaces</exec_depend>
+  <exec_depend>webots_ros2_driver</exec_depend>
+  <exec_depend>tf_transformations</exec_depend>
+
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>numpy</depend>

@@ -1,0 +1,80 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50  # Update rate for controllers
+
+    # Joint state broadcaster
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # Controllers for each wheel (four independent controllers)
+    left_front_wheel_ct:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_front_wheel_ct:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_rear_wheel_ct:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_rear_wheel_ct:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    camera_ct:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+# Parameters for each wheel's controller
+left_front_wheel_ct:
+  ros__parameters:
+    base_frame_id: "base_link"
+    joint: "joint_4"  # Update with actual joint name from URDF
+    command_interface: "velocity"
+    state_interface: "position"
+    pid:
+      p: 100.0  # Example PID parameters for velocity control
+      i: 0.1
+      d: 1.0
+
+right_front_wheel_ct:
+  ros__parameters:
+    base_frame_id: "base_link"
+    joint: "joint_5"  # Update with actual joint name from URDF
+    command_interface: "velocity"
+    state_interface: "position"
+    pid:
+      p: 100.0  # Example PID parameters for velocity control
+      i: 0.1
+      d: 1.0
+
+left_rear_wheel_ct:
+  ros__parameters:
+    base_frame_id: "base_link"
+    joint: "joint_6"  # Update with actual joint name from URDF
+    command_interface: "velocity"
+    state_interface: "position"
+    pid:
+      p: 100.0  # Example PID parameters for velocity control
+      i: 0.1
+      d: 1.0
+
+right_rear_wheel_ct:
+  ros__parameters:
+    base_frame_id: "base_link"
+    joint: "joint_7"  # Update with actual joint name from URDF
+    command_interface: "velocity"
+    state_interface: "position"
+    pid:
+      p: 100.0  # Example PID parameters for velocity control
+      i: 0.1
+      d: 1.0
+
+
+camera_ct:
+  ros__parameters:
+    base_frame_id: "cam_rev_Link"
+    joint: "joint_9"  # Update with actual joint name from URDF
+    command_interface: "position"
+    state_interface: "position"
+    pid:
+      p: 100.0  # Example PID parameters for velocity control
+      i: 0.1
+      d: 1.0

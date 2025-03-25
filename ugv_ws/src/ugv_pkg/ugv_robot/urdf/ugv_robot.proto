@@ -1,0 +1,524 @@
+#VRML_SIM R2025a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the ugv_robot
+# Extracted from: /home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/urdf/ugv_robot.urdf
+
+
+PROTO ugv_robot [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "ugv_robot"                            # Is `Robot.name`.
+  field  SFString    controller      "<extern>"                            # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                                     # Is `Robot.controllerArgs`.
+  field  SFBool      supervisor      FALSE                                  # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                                   # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE                                  # Is `Robot.selfCollision`.
+  field  SFString    customData      ""
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Solid {
+        translation 0.200000 0.200000 0.450000
+        rotation 1.000000 0.000000 0.000000 1.570800
+        children [
+          Shape {
+            appearance DEF red_plastic PBRAppearance {
+              baseColor 0.600000 0.020000 0.020000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF base_link Mesh {
+              url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/base_link.STL"
+            }
+          }
+          Solid {
+            translation 0.419978 -0.049499 -0.007858
+            children [
+              Shape {
+                appearance DEF black_steel PBRAppearance {
+                  baseColor 0.000000 0.000000 0.000000
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry DEF lidar_link Mesh {
+                  url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/lidar_link.STL"
+                }
+              }
+
+
+              Solid {
+                rotation 1 0 0 1.5708  # Rotation of 90 degrees (π/2 radians) around the X-axis
+                children [
+                  # LIDAR sensor definition
+                  Lidar {
+                    fieldOfView 3.141593          # [0, 2*pi]
+                    verticalFieldOfView 0.1
+                    tiltAngle 0.0
+                    minRange 0.1
+                    maxRange 2.0
+                    horizontalResolution 512
+                    noise 0.01
+                    resolution 0.4               # Detect minimal changes
+                    defaultFrequency 10
+                    type "fixed"
+                    projection "cylindrical"
+                    near 0.1
+                  }
+                ]
+                name "lidar_support"
+              }
+            ]
+            name "lidar_link"
+            boundingObject USE lidar_link
+            physics Physics {
+              density -1
+              mass 0.752500
+              centerOfMass [ 0.009214 0.000375 -0.001074 ]
+              inertiaMatrix [
+                1.384399e-03 1.991792e-03 9.185722e-04
+                -5.493105e-05 -9.712995e-06 9.874117e-06
+              ]
+            }
+          }
+          Solid {
+            translation 0.000219 -0.209993 -0.001722
+            children [
+              Shape {
+                appearance DEF body_metal PBRAppearance {
+                  baseColor 0.403922 0.403922 0.403922
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry DEF body_link Mesh {
+                  url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/body_link.STL"
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.019870 -0.008179 0.999770
+                  anchor 0.248200 -0.003105 0.410140
+                }
+                device [
+                  RotationalMotor {
+                    name "joint_4"
+                    maxVelocity 12.56637
+                    minPosition -3.1416
+                    maxPosition 3.1416
+                    maxTorque 10000.0
+                  }
+                  PositionSensor {
+                    name "joint_4_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0.248200 -0.003105 0.410140
+                  children [
+                    Shape {
+                      appearance DEF purple_plastic PBRAppearance {
+                        baseColor 0.423529 0.100784 0.788200
+                        roughness 1.000000
+                        metalness 0
+                      }
+                      geometry DEF wheel1_Link Mesh {
+                        url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel1_Link.STL"
+                      }
+                    }
+                    Solid {
+                      children [
+                        Shape {
+                          appearance DEF metal_roll PBRAppearance {
+                            baseColor 0.421569 0.421569 0.421569
+                            roughness 1.000000
+                            metalness 0
+                          }
+                          geometry DEF wheel1_sub_Link Mesh {
+                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel1_sub_Link.STL"
+                          }
+                        }
+                      ]
+                      name "wheel1_sub_Link"
+                      boundingObject USE wheel1_sub_Link
+                      physics Physics {
+                        density -1
+                        mass 2.810848
+                        centerOfMass [ -0.000144 0.000059 -0.007237 ]
+                        inertiaMatrix [
+                          2.108804e-03 2.109004e-03 1.492622e-03
+                          9.995664e-08 -1.225040e-05 5.046065e-06
+                        ]
+                      }
+                    }
+                  ]
+                  name "wheel1_Link"
+                  boundingObject USE wheel1_Link
+                  physics Physics {
+                    density -1
+                    mass 15.315264
+                    centerOfMass [ -0.000099 0.000041 -0.004999 ]
+                    inertiaMatrix [
+                      1.843494e-01 1.843031e-01 3.253842e-01
+                      -2.294089e-05 2.804125e-03 -1.154279e-03
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.019870 -0.008179 0.999769
+                  anchor -0.231706 -0.003684 0.419671
+                }
+                device [
+                  RotationalMotor {
+                    name "joint_5"
+                    maxVelocity 12.56637
+                    minPosition -3.1416
+                    maxPosition 3.1416
+                    maxTorque 10000.0
+                  }
+                  PositionSensor {
+                    name "joint_5_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.231706 -0.003684 0.419671
+                  children [
+                    Shape {
+                      appearance USE purple_plastic
+                      geometry DEF wheel2_Link Mesh {
+                        url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel2_Link.STL"
+                      }
+                    }
+                    Solid {
+                      children [
+                        Shape {
+                          appearance USE metal_roll
+                          geometry DEF wheel2_sub_link Mesh {
+                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel2_sub_link.STL"
+                          }
+                        }
+                      ]
+                      name "wheel2_sub_link"
+                      boundingObject USE wheel2_sub_link
+                      physics Physics {
+                        density -1
+                        mass 2.810848
+                        centerOfMass [ -0.000111 0.000046 -0.005592 ]
+                        inertiaMatrix [
+                          2.108804e-03 2.109004e-03 1.492622e-03
+                          9.995664e-08 -1.225040e-05 5.046065e-06
+                        ]
+                      }
+                    }
+                  ]
+                  name "wheel2_Link"
+                  boundingObject USE wheel2_Link
+                  physics Physics {
+                    density -1
+                    mass 15.315264
+                    centerOfMass [ -0.000099 0.000041 -0.004999 ]
+                    inertiaMatrix [
+                      1.843494e-01 1.843031e-01 3.253842e-01
+                      -2.294089e-05 2.804125e-03 -1.154279e-03
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.019870 -0.008179 0.999769
+                  anchor 0.231706 0.003684 -0.419671
+                }
+                device [
+                  RotationalMotor {
+                    name "joint_6"
+                    maxVelocity 12.56637
+                    minPosition -3.1416
+                    maxPosition 3.1416
+                    maxTorque 10000.0
+                  }
+                  PositionSensor {
+                    name "joint_6_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0.231706 0.003684 -0.419671
+                  rotation -1.000000 0.000000 0.000000 3.141593
+                  children [
+                    Shape {
+                      appearance USE purple_plastic
+                      geometry DEF wheel3_Link Mesh {
+                        url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel3_Link.STL"
+                      }
+                    }
+                    Solid {
+                      children [
+                        Shape {
+                          appearance USE metal_roll
+                          geometry DEF wheel3_sub_link Mesh {
+                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel3_sub_link.STL"
+                          }
+                        }
+                      ]
+                      name "wheel3_sub_link"
+                      boundingObject USE wheel3_sub_link
+                      physics Physics {
+                        density -1
+                        mass 2.810848
+                        centerOfMass [ 0.000084 0.000035 -0.004236 ]
+                        inertiaMatrix [
+                          2.128591e-03 2.128813e-03 1.452983e-03
+                          -1.100602e-07 1.343487e-05 5.525956e-06
+                        ]
+                      }
+                    }
+                  ]
+                  name "wheel3_Link"
+                  boundingObject USE wheel3_Link
+                  physics Physics {
+                    density -1
+                    mass 15.315264
+                    centerOfMass [ 0.000099 0.000041 -0.004999 ]
+                    inertiaMatrix [
+                      1.843494e-01 1.843031e-01 3.253842e-01
+                      2.294089e-05 -2.804125e-03 -1.154279e-03
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  axis 0.019870 -0.008179 0.999769
+                  anchor -0.248199 0.003105 -0.410138
+                }
+                device [
+                  RotationalMotor {
+                    name "joint_7"
+                    maxVelocity 12.56637
+                    minPosition -3.1416
+                    maxPosition 3.1416
+                    maxTorque 10000.0
+                  }
+                  PositionSensor {
+                    name "joint_7_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.248199 0.003105 -0.410138
+                  rotation -1.000000 0.000000 0.000000 3.141593
+                  children [
+                    Shape {
+                      appearance USE purple_plastic
+                      geometry DEF wheel4_Link Mesh {
+                        url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel4_Link.STL"
+                      }
+                    }
+                    Solid {
+                      children [
+                        Shape {
+                          appearance USE metal_roll
+                          geometry DEF wheel4_sub_link Mesh {
+                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel4_sub_link.STL"
+                          }
+                        }
+                      ]
+                      name "wheel4_sub_link"
+                      boundingObject USE wheel4_sub_link
+                      physics Physics {
+                        density -1
+                        mass 2.810800
+                        centerOfMass [ 0.000114 0.000047 -0.005727 ]
+                        inertiaMatrix [
+                          2.128600e-03 2.128800e-03 1.453000e-03
+                          -1.100600e-07 1.343500e-05 5.526000e-06
+                        ]
+                      }
+                    }
+                  ]
+                  name "wheel4_Link"
+                  boundingObject USE wheel4_Link
+                  physics Physics {
+                    density -1
+                    mass 15.315264
+                    centerOfMass [ 0.000099 0.000041 -0.004999 ]
+                    inertiaMatrix [
+                      1.843494e-01 1.843031e-01 3.253842e-01
+                      2.294089e-05 -2.804125e-03 -1.154279e-03
+                    ]
+                  }
+                }
+              }
+            ]
+            name "body_link"
+            boundingObject USE body_link
+            physics Physics {
+              density -1
+              mass 48.031858
+              centerOfMass [ -0.000000 0.000000 0.000000 ]
+              inertiaMatrix [
+                1.253715e+00 2.720885e+00 1.752129e+00
+                -1.613429e-03 9.895215e-03 7.956501e-03
+              ]
+            }
+          }
+          Solid {
+            translation 0.204430 0.150240 -0.002527
+            children [
+              Shape {
+                appearance DEF arm_link_material PBRAppearance {
+                  baseColor 0.403922 0.403922 0.403922
+                  roughness 1.000000
+                  metalness 0
+                }
+                geometry DEF arm_link Mesh {
+                  url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/arm_link.STL"
+                }
+              }
+              Solid {
+                translation -0.005356 0.119990 0.001088
+                children [
+                  Shape {
+                    appearance DEF cam_rev_Link_material PBRAppearance {
+                      baseColor 0.403922 0.403922 0.403922
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF cam_rev_Link Mesh {
+                      url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/cam_rev_Link.STL"
+                    }
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis -0.019870 0.008179 -0.999770
+                    }
+                    device [
+                      RotationalMotor {
+                        name "joint_9"
+                        maxVelocity 3.1416
+                        minPosition -1.3963
+                        maxPosition 1.3963
+                        maxTorque 1000.0
+                      }
+                      PositionSensor {
+                        name "joint_9_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      children [
+                        Shape {
+                          appearance DEF cam_Link_material PBRAppearance {
+                            baseColor 0.403922 0.403922 0.403922
+                            roughness 1.000000
+                            metalness 0
+                          }
+                          geometry DEF cam_Link Mesh {
+                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/cam_Link.STL"
+                          }
+                        }
+                        Solid {
+                          translation 0.004801 0.410959 0.003267
+                          children [
+                            Shape {
+                              appearance DEF cam_end_Link_material PBRAppearance {
+                                baseColor 0.403922 0.403922 0.403922
+                                roughness 1.000000
+                                metalness 0
+                              }
+                              geometry DEF cam_end_Link Mesh {
+                                url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/cam_end_Link.STL"
+                              }
+                            }
+
+                            # Camera sensor (PositionSensor for the camera)
+                            Camera {
+                              fieldOfView 0.785398            # Adjust FOV as needed
+                              near 0.01                       # Near clipping plane
+                              far 1000.0                      # Far clipping plane
+                              noise 0.01
+                              width 500
+                              height 330
+                              projection "planar"
+                              exposure 1.0
+                              antiAliasing FALSE
+                              bloomThreshold -1.0
+                              motionBlur 0.1
+                            }
+                          ]
+                          name "cam_end_Link"
+                          boundingObject USE cam_end_Link
+                          physics Physics {
+                            density -1
+                            mass 5.448300
+                            centerOfMass [ -0.002651 -0.226370 -0.001799 ]
+                            inertiaMatrix [
+                              8.124700e-02 1.318200e-02 8.029800e-02
+                              -7.977000e-04 -2.534700e-05 -5.333400e-04
+                            ]
+                          }
+                        }
+                      ]
+                      name "cam_Link"
+                      boundingObject USE cam_Link
+                      physics Physics {
+                        density -1
+                        mass 5.448300
+                        centerOfMass [ 0.002150 0.184590 0.001468 ]
+                        inertiaMatrix [
+                          8.124700e-02 1.318200e-02 8.029800e-02
+                          -7.977000e-04 -2.534700e-05 -5.333400e-04
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "cam_rev_Link"
+                boundingObject USE cam_rev_Link
+                physics Physics {
+                  density -1
+                  mass 0.861490
+                  centerOfMass [ 0.000021 -0.019683 -0.000161 ]
+                  inertiaMatrix [
+                    1.770000e-03 1.604300e-03 2.322100e-03
+                    8.309200e-08 1.097800e-05 -5.876400e-06
+                  ]
+                }
+              }
+            ]
+            name "arm_link"
+            boundingObject USE arm_link
+            physics Physics {
+              density -1
+              mass 3.005500
+              centerOfMass [ -0.004619 -0.003932 -0.000247 ]
+              inertiaMatrix [
+                1.010200e-02 1.529000e-02 1.008100e-02
+                -5.414200e-06 -4.875500e-07 4.273200e-05
+              ]
+            }
+          }
+        ]
+        name "base_link"
+        boundingObject USE base_link
+        physics Physics {
+          density -1
+          mass 104.307294
+          centerOfMass [ 0.022749 -0.002050 -0.000469 ]
+          inertiaMatrix [
+            3.855223e+00 9.212247e+00 6.054127e+00
+            -1.159715e-02 4.362055e-02 2.606212e-02
+          ]
+        }
+      }
+    ]
+    name IS name
+  }
+}
