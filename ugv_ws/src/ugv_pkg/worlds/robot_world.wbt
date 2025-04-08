@@ -195,6 +195,7 @@ DirectionPanel {
   translation 8 5 1.5
   rotation 0.00010265399783649644 -0.00010265399783649644 0.9999999894621566 1.5708
 }
+
 ugv_robot {
   translation 6.1 -2 0
   controller "<extern>"

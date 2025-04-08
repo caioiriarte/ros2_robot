@@ -9,12 +9,16 @@ PROTO ugv_robot [
   field  SFVec3f     translation     0 0 0
   field  SFRotation  rotation        0 0 1 0
   field  SFString    name            "ugv_robot"                            # Is `Robot.name`.
-  field  SFString    controller      "<extern>"                            # Is `Robot.controller`.
-  field  MFString    controllerArgs  []                                     # Is `Robot.controllerArgs`.
-  field  SFBool      supervisor      FALSE                                  # Is `Robot.supervisor`.
-  field  SFBool      synchronization TRUE                                   # Is `Robot.synchronization`.
-  field  SFBool      selfCollision   FALSE                                  # Is `Robot.selfCollision`.
-  field  SFString    customData      ""
+
+  # Is `Robot.controller`.
+  field  SFString    controller      "robot_driver"
+
+  field  MFString    controllerArgs  []
+  field SFString   window          "<generic>"    # Is `Robot.window`.
+  field SFString   customData      ""             # Is `Robot.customData`.
+  field SFBool     supervisor      FALSE          # Is `Robot.supervisor`.
+  field SFBool     synchronization TRUE           # Is `Robot.synchronization`.
+  field MFNode     extensionSlot   []
 ]
 {
   Robot {
@@ -22,10 +26,12 @@ PROTO ugv_robot [
     rotation IS rotation
     controller IS controller
     controllerArgs IS controllerArgs
+    window IS window
     customData IS customData
     supervisor IS supervisor
     synchronization IS synchronization
-    selfCollision IS selfCollision
+    name IS name
+
     children [
       Solid {
         translation 0.200000 0.200000 0.450000
@@ -111,9 +117,7 @@ PROTO ugv_robot [
                 device [
                   RotationalMotor {
                     name "joint_4"
-                    maxVelocity 12.56637
-                    minPosition -3.1416
-                    maxPosition 3.1416
+                    maxVelocity 20.0
                     maxTorque 10000.0
                   }
                   PositionSensor {
@@ -141,13 +145,13 @@ PROTO ugv_robot [
                             roughness 1.000000
                             metalness 0
                           }
-                          geometry DEF wheel1_sub_Link Mesh {
-                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel1_sub_Link.STL"
+                          geometry DEF wheel1_sub_link Mesh {
+                            url "/home/caio_iriarte/ros2_robot/ugv_ws/src/ugv_pkg/ugv_robot/meshes/wheel1_sub_link.STL"
                           }
                         }
                       ]
-                      name "wheel1_sub_Link"
-                      boundingObject USE wheel1_sub_Link
+                      name "wheel1_sub_link"
+                      boundingObject USE wheel1_sub_link
                       physics Physics {
                         density -1
                         mass 2.810848
@@ -180,9 +184,7 @@ PROTO ugv_robot [
                 device [
                   RotationalMotor {
                     name "joint_5"
-                    maxVelocity 12.56637
-                    minPosition -3.1416
-                    maxPosition 3.1416
+                    maxVelocity 20.0
                     maxTorque 10000.0
                   }
                   PositionSensor {
@@ -241,9 +243,7 @@ PROTO ugv_robot [
                 device [
                   RotationalMotor {
                     name "joint_6"
-                    maxVelocity 12.56637
-                    minPosition -3.1416
-                    maxPosition 3.1416
+                    maxVelocity 20.0
                     maxTorque 10000.0
                   }
                   PositionSensor {
@@ -303,9 +303,7 @@ PROTO ugv_robot [
                 device [
                   RotationalMotor {
                     name "joint_7"
-                    maxVelocity 12.56637
-                    minPosition -3.1416
-                    maxPosition 3.1416
+                    maxVelocity 20.0
                     maxTorque 10000.0
                   }
                   PositionSensor {
@@ -404,8 +402,6 @@ PROTO ugv_robot [
                       RotationalMotor {
                         name "joint_9"
                         maxVelocity 3.1416
-                        minPosition -1.3963
-                        maxPosition 1.3963
                         maxTorque 1000.0
                       }
                       PositionSensor {
@@ -519,6 +515,5 @@ PROTO ugv_robot [
         }
       }
     ]
-    name IS name
   }
 }

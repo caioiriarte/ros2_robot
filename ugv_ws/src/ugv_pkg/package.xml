@@ -5,16 +5,18 @@
   <maintainer email="caio.vaz137@gmail.com">Tu Nombre</maintainer>
   <license>Apache-2.0</license>
 
-  <!-- Dependencias necesarias -->
-  <exec_depend>rclpy</exec_depend>
-  <exec_depend>builtin_interfaces</exec_depend>
-  <exec_depend>webots_ros2_driver</exec_depend>
-  <exec_depend>tf_transformations</exec_depend>
-
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>webots_ros2_driver</depend>
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>numpy</depend>
-  <depend>mujoco</depend>
+  <depend>robot_state_publisher</depend>
+
+
+  <!-- Dependencias necesarias -->
+  <exec_depend>builtin_interfaces</exec_depend>
+  <exec_depend>tf_transformations</exec_depend>
 
   <!-- Opcional: Si usarás RViz directamente -->
   <depend>rviz_common</depend>

@@ -242,7 +242,7 @@
   </joint>
 
   <link
-    name="wheel1_sub_Link">
+    name="wheel1_sub_link">
     <inertial>
       <origin
         xyz="-0.000143837657831714 5.92100987759636E-05 -0.00723733832609547"
@@ -263,7 +263,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ugv_robot/meshes/wheel1_sub_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel1_sub_link.STL" />
       </geometry>
       <material
         name="metal_roll">
@@ -277,7 +277,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ugv_robot/meshes/wheel1_sub_Link.STL" />
+          filename="package://ugv_robot/meshes/wheel1_sub_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -290,7 +290,7 @@
     <parent
       link="wheel1_Link" />
     <child
-      link="wheel1_sub_Link" />
+      link="wheel1_sub_link" />
     <axis
       xyz="0 0 0" />
   </joint>

@@ -1,21 +1,22 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 
 <!-- Robot plugin definition -->
-<robot name="Robot1 Webots">
-    <field name="controller" type="SFString" value="robot_driver.py"/>
+<robot name="UGV Robot Webots">
+    <webots>
+        <device name="lidar" type="Lidar">
+            <ros>
+                <enabled>true</enabled>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
 
-    <device name="lidar" type="Lidar">
-        <ros>
-            <enabled>true</enabled>
-            <alwaysOn>true</alwaysOn>
-        </ros>
-    </device>
-
-    <device name="camera" type="Camera">
-        <ros>
-            <topicName>/camera</topicName>
-        </ros>
-    </device>
-    
-    <plugin type="ugv_pkg.robot_driver.RobotDriver"/>
+        <device name="camera" type="Camera">
+            <ros>
+                <topicName>/camera</topicName>
+                <alwaysOn>true</alwaysOn>
+            </ros>
+        </device>
+        
+        <plugin type="ugv_pkg.robot_driver.RobotDriver"/>
+    </webots>
 </robot>

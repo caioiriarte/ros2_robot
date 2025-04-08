@@ -12,7 +12,6 @@ data_files.append(('share/' + package_name + '/worlds', [
     'worlds/robot_world.wbproj',
     'worlds/robot_world.wbt',
     'resource/ugv_robot.urdf',
-    'resource/ros2_control.yml',
 ]))
 
 #   Append robot definition
@@ -45,9 +44,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'lidar_pub = ugv_pkg.lidar:main',
-            'camera_pub = ugv_pkg.camera:main',
-            'robot_driver = ugv_pkg.robot_driver:main'
+            'robot_driver = ugv_pkg.robot_driver:main',
         ],
         'launch.frontend.launch_extension': [
             'launch_ros = launch_ros',
